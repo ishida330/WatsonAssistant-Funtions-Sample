@@ -10,10 +10,9 @@ Qiita記事「[情報提供型のチャットボット(Watson Assistant/Function
   ![Db2load](https://user-images.githubusercontent.com/9675895/63083390-93a20280-bf83-11e9-9f7d-a216e55d057c.png)
 
 - Functionのロジックに記入するために以下を記録します
-  -接続文字列: Db2-サービス資格情報-dsn
-   例) "dsn": "DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net;PORT=50000;PROTOCOL=TCPIP;UID=xxxxxxxx;PWD=xxxxxxxx;",
-   -スキーマとテーブル名
-   
+- **接続文字列**: Db2-サービス資格情報->dsn
+例) "dsn": "DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net;PORT=50000;PROTOCOL=TCPIP;UID=xxxxxxxx;PWD=xxxxxxxx;"
+- **スキーマとテーブル名**   
 
 ### 3. Functionsの作成
 - function/SELECT_MOVIES.pyのDb2接続文字列・スキーマ、テーブル名を変更します
