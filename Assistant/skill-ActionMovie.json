@@ -69,22 +69,6 @@
     }
   },
   "skill_id": "3643543c-422e-48ef-9ef0-eee942fcde75",
-  "webhooks": [
-    {
-      "url": "https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01",
-      "name": "main_webhook",
-      "headers": [
-        {
-          "name": "Authorization",
-          "value": "Basic YXBpa2V5OkU0bDBsWl85cnZya3A0di1tQXhqTUxQVWhzNm1CbENuVkFGVGhNRldwellE"
-        },
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ]
-    }
-  ],
   "description": "",
   "dialog_nodes": [
     {
@@ -131,7 +115,7 @@
       },
       "actions": [
         {
-          "name": "/e05146%40jp.ibm.com_default/SELECT_MOVIES",
+          "name": "/<<change me!>>/SELECT_MOVIES",
           "type": "server",
           "parameters": {
             "ACTOR": "@ACTOR.literal"
@@ -142,8 +126,8 @@
       ],
       "context": {
         "icf_cred": {
-          "user": "5bd76439-4df0-4963-85b0-adffb4f03fd8",
-          "password": "e8WoHm4o7NjuFbMpjg9CB1TTjHFbtOZavhn9pueYxmIC7EHaN9N8P1eO2othvaQH"
+          "user": "<<change me!>>",
+          "password": "<<change me!>>"
         }
       },
       "next_step": {
