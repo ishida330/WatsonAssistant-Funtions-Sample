@@ -1,0 +1,7 @@
+
+ibmcloud fn action delete SELECT_MOVIES
+ibmcloud fn action create SELECT_MOVIES SELECT_MOVIES.py --kind python:3.7 
+ibmcloud fn action update SELECT_MOVIES SELECT_MOVIES.py --kind python:3.7 
+ibmcloud fn action invoke --result SELECT_MOVIES --param "ACTOR" "ブルース・リー"
+ibmcloud fn action invoke --result SELECT_MOVIES --param-file parm.json
+

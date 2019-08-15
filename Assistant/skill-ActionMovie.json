@@ -1,0 +1,178 @@
+{
+  "name": "ActionMovie",
+  "intents": [
+    {
+      "intent": "MOVIE",
+      "examples": [
+        {
+          "text": "スタローンの映画を教えてください"
+        },
+        {
+          "text": "ジャッキー・チェンの映画を教えてください"
+        },
+        {
+          "text": "シュワルツェネッガーの出てるやつを見たい"
+        },
+        {
+          "text": "ブルース・リーの出てる映画は何ですか"
+        },
+        {
+          "text": "スタローンの出てる映画ありますか"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "ACTOR",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "ジャッキー・チェン",
+          "synonyms": [
+            "ジャッキー",
+            "ジャッキーチェン"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "シュワルツェネッガー",
+          "synonyms": [
+            "シュワちゃん",
+            "アーノルド・シュワルツェネッガー"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ブルース・リー",
+          "synonyms": [
+            "リー",
+            "ブルースリー"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "スタローン",
+          "synonyms": [
+            "スライ",
+            "シルベスター・スタローン"
+          ]
+        }
+      ]
+    }
+  ],
+  "language": "ja",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "3643543c-422e-48ef-9ef0-eee942fcde75",
+  "webhooks": [
+    {
+      "url": "https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01",
+      "name": "main_webhook",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Basic YXBpa2V5OkU0bDBsWl85cnZya3A0di1tQXhqTUxQVWhzNm1CbENuVkFGVGhNRldwellE"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    }
+  ],
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "映画のリストを表示",
+      "output": {
+        "text": {
+          "values": [
+            "<?  @ACTOR.literal?>の出演映画は<? $titles.result.joinToArray($TEMPLATE).join(\"\") ?>です"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1565757789801",
+      "context": {
+        "TEMPLATE": "<li><a href=\"%e.URL%\">%e.TITLE%</a></li>"
+      },
+      "dialog_node": "node_1_1565758135426"
+    },
+    {
+      "type": "standard",
+      "title": "その他",
+      "output": {
+        "text": {
+          "values": [
+            "解釈できませんでした。申し訳ありませんが違う表現を試していただけますか。",
+            "恐れ入りますが表現を変えていただけますか。解釈できませんでした。"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "anything_else",
+      "dialog_node": "その他",
+      "previous_sibling": "node_3_1565757789801"
+    },
+    {
+      "type": "standard",
+      "title": "俳優名から映画を検索",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "actions": [
+        {
+          "name": "/e05146%40jp.ibm.com_default/SELECT_MOVIES",
+          "type": "server",
+          "parameters": {
+            "ACTOR": "@ACTOR.literal"
+          },
+          "credentials": "$icf_cred",
+          "result_variable": "context.titles"
+        }
+      ],
+      "context": {
+        "icf_cred": {
+          "user": "5bd76439-4df0-4963-85b0-adffb4f03fd8",
+          "password": "e8WoHm4o7NjuFbMpjg9CB1TTjHFbtOZavhn9pueYxmIC7EHaN9N8P1eO2othvaQH"
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1565758135426"
+      },
+      "conditions": "#MOVIE && @ACTOR",
+      "dialog_node": "node_3_1565757789801",
+      "previous_sibling": "ようこそ"
+    },
+    {
+      "type": "standard",
+      "title": "ようこそ",
+      "output": {
+        "text": {
+          "values": [
+            "誰の映画を見たいですか？"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "ようこそ"
+    }
+  ],
+  "workspace_id": "3643543c-422e-48ef-9ef0-eee942fcde75",
+  "counterexamples": [],
+  "system_settings": {},
+  "learning_opt_out": false,
+  "status": "Available"
+}
