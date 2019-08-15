@@ -14,6 +14,7 @@ Qiita記事「[情報提供型のチャットボット(Watson Assistant/Function
  
 ### 4. Assistant環境の作成
 - assistant/skill-ActionMovie.jsonをインポートします
+![import_skill](https://user-images.githubusercontent.com/9675895/63082531-694f4580-bf81-11e9-8cbf-efab64e1a1aa.png)
 - Function起動文字列の
 
 ```
