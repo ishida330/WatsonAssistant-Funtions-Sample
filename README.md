@@ -1,5 +1,5 @@
 # WatsonAssistant-Funtions-Sample
-Qiita記事「[情報提供型のチャットボット(Watson Assistant/Functions/Db2連携)で複数件の結果を扱う方法]()」のサンプルです
+Qiita記事「[情報提供型のチャットボット(Watson Assistant/Functions/Db2連携)で複数件の結果を扱う方法](https://qiita.com/ishida330/items/8d9fca035963ff99d856)」のサンプルです
 
 ## セットアップ手順
 ### 1. サービス・インスタンスの作成
